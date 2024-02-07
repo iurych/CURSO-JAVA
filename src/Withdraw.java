@@ -1,17 +1,16 @@
 import java.util.Scanner;
 
 public class Withdraw {
-    public static <notas> void main(String[] args) {
+    public static void main(String[] args) {
 
         int valor;
         String nome;
 
-        int VALOR_DE_SAQUE_MAXIMO = 1000;
-        int VALOR_DE_SAQUE_MINIMO = 10;
+        int SAQUE_MAXIMO = 1000;
+        int SAQUE_MINIMO = 10;
 
-        int[] notas = {10, 20, 50, 100};
-
-        var saldo = Math.random() * 1000;
+        var saldo = Math.random() * 10000;
+        System.out.println("Saldo inicial: " + saldo);
 
         System.out.println("Informe os dados para saque");
         var input = new Scanner(System.in);
@@ -20,33 +19,33 @@ public class Withdraw {
         nome = input.nextLine();
 
         System.out.println("Quanto quer sacar: ");
-        valor = input.nextDouble();
-        String valorFormatado = String.format("%.2f", valor);
-        String salddFormatado = String.format("%.2f", saldo);
+        valor = input.nextInt();
 
-        // preciso verificar se o valor que eu quero sacar é possível de acordo com as notas em dinheiro presentes no caixa eletronico
-        // se a divisão der resto difereten de zero, eu devo pegar apenas o quociente e multiplicar pelo valor da nota
-        // do resto, eu diminuo do produto e faço a divisão novamente pela nota mais baixa que a usada anteriormente
-        public static void verifica_condiçao_saque (notas) {
-           for( int nota : notas ) {
-                if (valor % nota == 0) {
-
-                }
-           }
-        }
         if (valor <= saldo) {
-            // saldo -= valor;
-            System.out.println("Olá " + nome + ", o saque de R$" + valorFormatado + " foi realizado com sucesso!");
+
+            if (valor > SAQUE_MAXIMO || valor < SAQUE_MINIMO) {
+                System.out.println("Valor inválido para saque");
+                String salddFormatado = String.format("%.2f", saldo);
+                System.out.println("Saldo atual: " + salddFormatado);
+                return;
+            }
+
+            saldo -=  valor;
+
+            System.out.println("Olá " + nome + ", o saque de R$ " + valor + " foi autorizado.");
+            String salddFormatado = String.format("%.2f", saldo);
             System.out.println("Saldo atual: " + salddFormatado);
+
+
         }
         else {
             System.out.println("Saldo insuficiente");
+            String salddFormatado = String.format("%.2f", saldo);
             System.out.println("Saldo atual: " + salddFormatado);
         }
-        else{
-            System.out.println("Olá " + nome + ", o saque de R$" + valorFormatado + " não pode ser realizado devido ao valor indicado ser ou menor que R$10,00 ou maior que R$1000,00.");
 
-        }
+
+//
     }
 }
 
