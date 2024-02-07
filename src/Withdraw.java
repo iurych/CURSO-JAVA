@@ -23,7 +23,7 @@ public class Withdraw {
 
         if (valor <= saldo) {
 
-            if (valor > SAQUE_MAXIMO || valor < SAQUE_MINIMO) {
+            if (valor > SAQUE_MAXIMO || valor < SAQUE_MINIMO || valor % 10 != 0) {
                 System.out.println("Valor inválido para saque");
                 String salddFormatado = String.format("%.2f", saldo);
                 System.out.println("Saldo atual: " + salddFormatado);
